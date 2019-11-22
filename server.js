@@ -19,7 +19,13 @@ const io = socket(server);
 io.on('connection', socket => {
   console.log(`Socket connection established (${socket.id})`.blue);
 
+  // Chat
   socket.on('chat', data => {
     io.sockets.emit('chat', data);
+  });
+
+  // Typing
+  socket.on('typing', data => {
+    socket.broadcast.emit('typing', data);
   });
 });
