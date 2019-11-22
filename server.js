@@ -1,4 +1,5 @@
 const express = require('express');
+const socket = require('socket.io');
 
 const app = express();
 
@@ -10,3 +11,10 @@ const server = app.listen(PORT, () => {
 
 // Static Files
 app.use(express.static('public'));
+
+// Socket Setup
+const io = socket(server);
+
+io.on('connection', () => {
+  console.log('socket connection established...');
+});
