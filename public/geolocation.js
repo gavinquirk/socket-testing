@@ -6,7 +6,7 @@ let received = [];
 let counter = 0;
 
 // Establish Websocket Connection
-const socket = io.connect('http://localhost:5000');
+const socket = io.connect('https://gq-socket-testing.herokuapp.com/');
 
 // Send Location Data Every 3 Seconds
 setInterval(function() {
