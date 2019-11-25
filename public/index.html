@@ -4,32 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Socket.io -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
     <title>Socket.io Testing</title>
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
   </head>
   <body>
-    <!-- OLD CHATROOM CODE -->
-    <!-- <main id="chatroom">
-      <div class="container">
-        <h1 class="mt-4">Socket.io Chatroom</h1>
-        <div id="chat-window">
-          <div id="output"></div>
-          <div id="feedback"></div>
-        </div>
-        <input type="text" id="handle" placeholder="Handle" />
-        <input type="text" id="message" placeholder="Message" />
-        <button id="send">Send</button>
-      </div>
-    </main> -->
     <main>
       <h1>Socket Testing</h1>
-      <!-- <button onclick="getLocation()">Try It</button> -->
-
-      <p id="demo"></p>
+      <ul id="list"></ul>
+      <h1 id="test"></h1>
     </main>
     <script src="./geolocation.js"></script>
   </body>

@@ -4,6 +4,9 @@ const colors = require('colors');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
+// Location Model
+const Location = require('./models/Location');
+
 // Load Environment Variables
 dotenv.config({ path: './config/config.env' });
 
@@ -44,6 +47,28 @@ io.on('connection', socket => {
 
   // Location
   socket.on('location', position => {
-    console.log(position);
+    const lat = position.lat;
+    const lng = position.lng;
+    const date = Date.now();
+    console.log(`lat: ${lat}, lng: ${lng}`);
+    try {
+      Location.create({
+        coordinates: [lat, lng],
+        date
+      });
+
+      socket.emit('location', {
+        lat,
+        lng,
+        date,
+        message: 'Successfully recorded location data'
+      });
+      console.log('Log emitted from server to client');
+    } catch (error) {
+      console.log('An error occurred');
+      socket.emit('error', {
+        message: 'A server error has occurred'
+      });
+    }
   });
 });
